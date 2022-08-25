@@ -1,0 +1,13 @@
+body {
+    background: url(hinh-nen-vu-tru-16.jpg);
+    background-size: cover;
+}
+.mid{
+    position: absolute;
+    margin-left: 15%;
+    border-style: groove;
+    border-color: #8effa9;
+}
+.score-box{
+   ;
+}
