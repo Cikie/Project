@@ -184,10 +184,11 @@ const PIECES = [
     [J, "#FFFF00"],
     [U, "#FF69B4"]
 ];
+// Random hình đầu khi chạy game lấy từ PIECES
 
 function randomPiece() {
     let r = Math.floor(Math.random() * PIECES.length);
-    return new Piece(PIECES[r][0], PIECES[r][1]);
+    return new Piece(PIECES[r][0], PIECES[r][1]); //random chỉ số có tetromino và
 }
 
 let p = randomPiece();
@@ -214,8 +215,6 @@ function drop() {
         } else {
             clearInterval(interval)
         }
-    }, 500)
+    }, 1000)
 }
-
-
 drop()
