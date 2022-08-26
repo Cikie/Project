@@ -1,13 +1,59 @@
 body {
-    background: url(hinh-nen-vu-tru-16.jpg);
+    background: url(34613.jpg);
     background-size: cover;
+    font-size: 16px;
 }
 .mid{
     position: absolute;
-    margin-left: 15%;
+    margin-top:-13%;
+    margin-left: 10%;
     border-style: groove;
     border-color: #8effa9;
 }
-.score-box{
-   ;
+#wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#form-login{
+    max-width: 400px;
+    background: rgba(7, 3, 3, 0.8);
+    flex-grow: 1;
+    padding: 10px 10px 5px;
+    box-shadow:0 0 17px 2px rgb(99, 151, 255);
+}
+.form-heading{
+    font-size: 25px;
+    color: #6397ff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form-group{
+    border-bottom: 1px solid #fff;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    display: flex;
+}
+.form-input{
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: white;
+    flex-grow: 1;
+}
+.form-input::placeholder {
+    color: #a4a2a2;
+}
+.form-submit{
+    background: transparent;
+    border: 1px solid #f5f5f5;
+    color: #ffffff;
+    width: 100%;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    transition: 0.25s ease-in-out;
+    margin-top: 10px ;
+}
+.form-submit:hover{
+    border: 1px solid #517bfd;
 }

@@ -6,6 +6,7 @@ const COL = 13;
 const SQ = 30;
 const COLOR = "WHITE";
 let score = 0;
+
 //Vẽ ô vuông:
 function drawSquare(x, y, color) {
     ctx.fillStyle = color;
@@ -14,6 +15,7 @@ function drawSquare(x, y, color) {
     ctx.strokeStyle = "#ccc";
     ctx.strokeRect(x * SQ, y * SQ, SQ, SQ);
 }
+
 //Mảng 2 chiều và màu của mảng
 let board = [];
 for (let r = 0; r < ROW; r++) {
@@ -34,6 +36,7 @@ function drawBoard() {
 }
 
 drawBoard();
+
 // Tạo hình khối
 class Piece {
     constructor(tetromino, color) {
@@ -64,6 +67,7 @@ class Piece {
     undraw() {
         this.fill(COLOR)
     }
+
 // Hàm di chuyển:
     moveDown() {
         if (!this.collision(0, 1, this.activeTetromino)) {
@@ -77,7 +81,7 @@ class Piece {
     };
 
     moveLeft() {
-        if (!this.collision(-1, 0, this.activeTetromino)) {
+        if (!this.collision(-1, 0, this.activeTetromino)) { // Hàm kiểm tra có đc di chuyển hay k
             this.undraw();
             this.x--;
             this.draw();
@@ -91,15 +95,15 @@ class Piece {
             this.draw();
         }
     }
-//Kết thúc
+
     lock() {
         for (let r = 0; r < this.activeTetromino.length; r++) {
             for (let c = 0; c < this.activeTetromino.length; c++) {
                 if (!this.activeTetromino[r][c]) {
                     continue
                 }
-                if (this.y + r < 0) {
-                    alert("Game Over");
+                if (this.y + r < 0) { //Kết thúc
+                    alert("Bái bai");
                     gameOver = true;
                     break;
                 }
@@ -107,21 +111,20 @@ class Piece {
                 board[this.y + r][this.x + c] = this.color;
             }
         }
-        for (let r = 0; r < ROW; r++) {
+        for (let r = 0; r < ROW; r++) { //Thuật toán tính ăn điểm
             let isFull = true;
             for (let c = 0; c < COL; c++) {
                 isFull = isFull && (board[r][c] !== COLOR)
             }
-            if (isFull) {
+            if (isFull) { // Cập nhật lại vị trí của các ô
                 for (let y = r; y > 1; y--) {
                     for (let c = 0; c < COL; c++) {
                         board[y][c] = board[y - 1][c];
                     }
                 }
-                for (let c = 0; c < COL; c++) {
+                for (let c = 0; c < COL; c++) {  //Tạo lại 1 hàng trắng trên đầu cột
                     board[0][c] = COLOR;
                 }
-
                 score += 10;
             }
         }
@@ -132,14 +135,14 @@ class Piece {
     rotate() {
         let nextPattern = this.tetromino[(this.tetrominoN + 1) % this.tetromino.length];
         let move = 0;
-        if (this.collision(0, 0, nextPattern)) {
+        if (this.collision(0, 0, nextPattern)) { // Trường hợp va chạm
             if (this.x > COL / 2) {
                 move = -1;
             } else {
                 move = 1
             }
         }
-        if (!this.collision(0, 0, nextPattern)) {
+        if (!this.collision(0, 0, nextPattern)) { //Trường hợp k va chạm
             this.undraw();
             this.x += move;
             this.tetrominoN = (this.tetrominoN + 1) % this.tetromino.length;
@@ -148,29 +151,30 @@ class Piece {
         }
     }
 
+// Hàm kiểm tra va chạm 2 cạnh trái phải
     collision(x, y, piece) {
         for (let r = 0; r < piece.length; r++) {
             for (let c = 0; c < piece.length; c++) {
                 if (!piece[r][c]) {
-                    continue
+                    continue;
                 }
-
+// Cập nhật lại tọa độ mới
                 let newX = this.x + c + x;
                 let newY = this.y + r + y;
-
+//Kiểm tra va chạm
                 if (newX < 0 || newX >= COL || newY >= ROW) {
-                    return true
+                    return true;
                 }
 
                 if (newY < 0) {
-                    continue
+                    continue;
                 }
                 if (board [newY] [newX] !== COLOR) {
-                    return true
+                    return true;
                 }
             }
         }
-        return false
+        return false;
     }
 }
 
@@ -184,11 +188,12 @@ const PIECES = [
     [J, "#FFFF00"],
     [U, "#FF69B4"]
 ];
+
 // Random hình đầu khi chạy game lấy từ PIECES
 
 function randomPiece() {
     let r = Math.floor(Math.random() * PIECES.length);
-    return new Piece(PIECES[r][0], PIECES[r][1]); //random chỉ số có tetromino và
+    return new Piece(PIECES[r][0], PIECES[r][1]); //random chỉ số có tetromino và màu
 }
 
 let p = randomPiece();
@@ -209,6 +214,7 @@ let gameOver = false;
 let interval;
 
 function drop() {
+    console.log(1)
     interval = setInterval(function () {
         if (!gameOver) {
             p.moveDown()
@@ -217,4 +223,18 @@ function drop() {
         }
     }, 1000)
 }
-drop()
+let d = 1;
+function login3(){
+    let login1 = document.getElementById("Login").value;
+    let pass1 = document.getElementById("Pass").value;
+    if (login1 === 'admin' && pass1 === 'admin'){
+        alert('dang nhap thanh cong')
+        drop();
+
+    }
+    else {
+        alert('tai khoan sai' );
+    }
+}
+
+

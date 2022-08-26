@@ -3,28 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
     <link rel="stylesheet" href="Game.css">
 
 </head>
 <body style="height: 100%">
+<div id="wrapper" class="form">
+    <form id="form-login">
+        <h1 class="form-heading">Đăng nhập</h1>
+        <div class="form-group">
+            <input type="text" name="login" id="Login" class="form-input" placeholder="Tên đăng nhập"/>
+<!--            <div class="error-message"></div>-->
+        </div>
+        <div class="form-group">
+            <input type="password" name="pass" id="Pass" class="form-input" placeholder="Mật khẩu"/>
+<!--            <div class="error-message"></div>-->
+        </div>
+        <button type="button" class="form-submit" onclick="login3()">Đăng Nhập</button>
+        <input type="submit" value="Đăng Kí" class="form-submit">
+    </form>
+</div>
 <div class="mid">
     <center>
-    <audio id="myAudio" controls autoplay loop>
-        <source src="y2mate.com%20-%20VietsubPinyin%20Tay%20Trái%20Chỉ%20Trăng%20%20Tát%20Đỉnh%20Đỉnh%20%20%20OST%20Hương%20Mật%20Tựa%20Khói%20Sương.mp3"
-                type="audio/mpeg">
-    </audio>
+        <audio id="myAudio" controls autoplay loop>
+            <source src="9convert.com%20-%20Electro%20%20Nitro%20Fun%20%20Hyper%20Potions%20%20Checkpoint%20Monstercat%20Release.mp3"
+                    type="audio/mpeg">
+        </audio>
         <h1 style="color: #ff0b2f">Terris Game</h1>
         <div class="game">
-            <div id="scores" style="color:#1654ff" class="score-box"> Score : <div id="score">0</div>
+            <div id="scores" style="color:#1654ff" class="score-box"> Score :
+                <div id="score">0</div>
             </div>
         </div>
     </center>
-    <canvas id="canvas" width="390" height="600"></canvas>
+    <canvas style="" id="canvas" width="390" height="600"></canvas>
 </div>
-</div>
-
 <script src="shape.js"></script>
 <script src="Game.js"></script>
 </body>
 </html>
+<script>
+    // function validateInput(){
+    // let formElement = document.querySelector(".form")
+    //     let inputElement = formElement.querySelector(".form-input")
+    //     for (let i = 0; i < inputElement.length; i++) {
+    //         if(inputElement[i].value === ""){
+    //             inputElement[i].parentElement.querySelector(".error-message").innerText = `Text pls ${inputElement[i].id}`
+    //         }else{
+    //             inputElement[i].parentElement.querySelector(".error-message").innerText = ""
+    //         }
+    //     }
+    // }
+    // function addNew(){
+    //     validateInput()
+    //     let formElement = document.querySelector(".form")
+    //     let errorElement = formElement.querySelector(".error-message")
+    //     let arrErrorElement = []
+    //     for (let i = 0; i < errorElement.length; i++) {
+    //         arrErrorElement.push(errorElement[i].innerText)
+    //     }
+    //     let checkErrorElement  = arrErrorElement.every(value => value ==="")
+    //     if (checkErrorElement){
+    //         console.log("ok")
+    //     }
+    // }
+
+
+
+</script>
