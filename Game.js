@@ -103,7 +103,7 @@ class Piece {
                     continue
                 }
                 if (this.y + r < 0) { //Kết thúc
-                    alert("Bái bai");
+                    alert("Better luck next time =)))");
                     gameOver = true;
                     break;
                 }
